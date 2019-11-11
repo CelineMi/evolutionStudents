@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Notation{% endblock %}
+
+{% block body %}
+    <h1>Notation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ notation.id }}</td>
+            </tr>
+            <tr>
+                <th>GreenCross</th>
+                <td>{{ notation.greenCross }}</td>
+            </tr>
+            <tr>
+                <th>BlackCross</th>
+                <td>{{ notation.blackCross }}</td>
+            </tr>
+            <tr>
+                <th>Belt</th>
+                <td>{{ notation.belt }}</td>
+            </tr>
+            <tr>
+                <th>NoCrossWeeks</th>
+                <td>{{ notation.noCrossWeeks }}</td>
+            </tr>
+            <tr>
+                <th>Job</th>
+                <td>{{ notation.job }}</td>
+            </tr>
+            <tr>
+                <th>Checked</th>
+                <td>{{ notation.checked ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>User_id</th>
+                <td>{{ notation.userId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('notation_index') }}">back to list</a>
+
+    <a href="{{ path('notation_edit', {'id': notation.id}) }}">edit</a>
+
+    {{ include('notation/_delete_form.html.twig') }}
+{% endblock %}
