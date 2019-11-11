@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Notation index{% endblock %}
+
+{% block body %}
+    <h1>Notation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>GreenCross</th>
+                <th>BlackCross</th>
+                <th>Belt</th>
+                <th>NoCrossWeeks</th>
+                <th>Job</th>
+                <th>Checked</th>
+                <th>User_id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for notation in notations %}
+            <tr>
+                <td>{{ notation.id }}</td>
+                <td>{{ notation.greenCross }}</td>
+                <td>{{ notation.blackCross }}</td>
+                <td>{{ notation.belt }}</td>
+                <td>{{ notation.noCrossWeeks }}</td>
+                <td>{{ notation.job }}</td>
+                <td>{{ notation.checked ? 'Yes' : 'No' }}</td>
+                <td>{{ notation.userId }}</td>
+                <td>
+                    <a href="{{ path('notation_show', {'id': notation.id}) }}">show</a>
+                    <a href="{{ path('notation_edit', {'id': notation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('notation_new') }}">Create new</a>
+{% endblock %}
